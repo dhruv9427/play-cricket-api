@@ -1,12 +1,9 @@
-const app = document.getElementById('root')
 var request = new XMLHttpRequest()
-console.log(request);
-request.open('GET', 'http://play-cricket.com/api/v2/match_detail.json?&match_id=3328002&api_token=212ca0102140da76011c0ed0e42c8378', true)
-console.log(request);
+request.open('GET', 'http://play-cricket.com/api/v2/sites/3760/players?&api_token=212ca0102140da76011c0ed0e42c8378&include_everyone=yes&include_historic=no', true)
+request.send()
 request.onload = function() {
-    // Begin accessing JSON data here
-    console.log(request);
-    var data = JSON.stringify(this.response)
-    console.log(data);
+    var playerdata = JSON.stringify(this.response)
+    console.log(playerdata);
+    document.write(playerdata);
 }
-  request.send()
+
